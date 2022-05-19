@@ -18,7 +18,18 @@ class BookDescription  : Fragment() {
         val v = inflater.inflate(R.layout.book_description, container,
             false)
         arrbookdesc = resources.getStringArray(R.array.bookdescriptions)
+        bookindex = if(savedInstanceState?.getInt("bookindex") == null) 0
+        else { savedInstanceState.getInt("bookindex")}
         return v
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("bookindex", bookindex)
+    }
+    fun changeDescription(index:Int) : Unit {
+        bookindex = index
+        println("BOOK INDEX = $bookindex")
+        txtdescription?.setText(arrbookdesc[bookindex])
+        println(arrbookdesc[bookindex])
     }
     fun changeDescription(index: Int): Unit {
         bookindex = index

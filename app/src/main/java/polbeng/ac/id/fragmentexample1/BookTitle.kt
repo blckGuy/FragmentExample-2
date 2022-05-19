@@ -34,5 +34,10 @@ class BookTitle : Fragment(), View.OnClickListener {
                 index = 2
             }
         }
+        val activity = getActivity()
+        if (activity is Coordinator) {
+            activity.onBookChanged(index)
+        }
+
     }
 }

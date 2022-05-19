@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.book_description.*
 class BookDescription  : Fragment() {
     lateinit var arrbookdesc: Array<String>
     var bookindex = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container:
         ViewGroup?, savedInstanceState: Bundle?
@@ -30,10 +31,6 @@ class BookDescription  : Fragment() {
         println("BOOK INDEX = $bookindex")
         txtdescription?.setText(arrbookdesc[bookindex])
         println(arrbookdesc[bookindex])
-    }
-    fun changeDescription(index: Int): Unit {
-        bookindex = index
-        txtdescription?.setText(arrbookdesc[bookindex])
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         changeDescription(bookindex)
